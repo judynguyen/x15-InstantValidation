@@ -36,7 +36,7 @@ function validate(){
     //Turn the password items red
     document.getElementById("passwordGroup").classList.add("has-error");
   }
-  else if (passLength < 6) {
+  else if (passLength<6) {
   document.getElementById("passwordError").innerHTML="Password must be greater than 6 characters.";
   document.getElementById("passwordError").classList.remove("hidden-message");
   document.getElementById("passwordError").classList.add("shown-message");
