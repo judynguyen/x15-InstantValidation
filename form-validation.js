@@ -28,7 +28,7 @@ function validate(){
   }
 
 
-  if(passEntered.toLowerCase() == "password" || passEntered > 20)
+  if(passEntered.toLowerCase() == "password")
   {
     document.getElementById("passwordError").innerHTML="Bad password.";
     document.getElementById("passwordError").classList.remove("hidden-message");
@@ -43,6 +43,13 @@ function validate(){
   //Turn the password items red
   document.getElementById("passwordGroup").classList.add("has-error");
   }
+  else if(passLength>20){
+  document.getElementById("passwordError").innerHTML="Password must be less than 20 characters.";
+  document.getElementById("passwordError").classList.remove("hidden-message");
+  document.getElementById("passwordError").classList.add("shown-message");
+  //Turn the password items red
+  document.getElementById("passwordGroup").classList.add("has-error");
+}
   else
   {
     document.getElementById("passwordError").innerHTML="";
@@ -66,7 +73,8 @@ function validate(){
   {
       var ch;
       ch = userEntered.charAt(i);
-      console.log(ch);
+      name = name + ch;
+      console.log(name);
       if(ch == " ")
       {
         document.getElementById("usernameError").innerHTML="Bad username.";
