@@ -1,13 +1,12 @@
-function validate(){
-  //Grab the user's input and store in variables
+function submiT(){
   var userEntered = document.getElementById("user").value;
   var passEntered = document.getElementById("pass").value;
-  var userLength = userEntered.length;
-  var passLength = passEntered.length;
+  alert("Username: " + userEntered + "\nPassword: " + passEntered );
+}
 
-  console.log("Username length is " +  userLength);
-  console.log("Password is " + passEntered);
-  console.log("Password length is " + passLength);
+function validateUsername(){
+  var userEntered = document.getElementById("user").value;
+  var userLength = userEntered.length;
 
   if(userLength>=6)
   {
@@ -26,6 +25,35 @@ function validate(){
     //Turn the username items red
     document.getElementById("usernameGroup").classList.add("has-error");
   }
+
+
+    for(var i=0; i<=userLength; i++){
+        var ch;
+        ch = userEntered.charAt(i);
+        name = name + ch;
+        console.log(name);
+        if(ch == " ")
+        {
+          document.getElementById("usernameError").innerHTML="Bad username.";
+          document.getElementById("usernameError").classList.remove("hidden-message");
+          document.getElementById("usernameError").classList.add("shown-message");
+          //Turn the username items red
+          document.getElementById("usernameGroup").classList.remove("has-success");
+          document.getElementById("usernameGroup").classList.add("has-error");
+        }
+    }
+}
+
+function validatePassword(){
+  //Grab the user's input and store in variables
+  var userEntered = document.getElementById("user").value;
+  var passEntered = document.getElementById("pass").value;
+  var userLength = userEntered.length;
+  var passLength = passEntered.length;
+
+  console.log("Username length is " +  userLength);
+  console.log("Password is " + passEntered);
+  console.log("Password length is " + passLength);
 
 
   if(passEntered.toLowerCase() == "password")
@@ -60,22 +88,6 @@ function validate(){
     document.getElementById("passwordError").classList.add("shown-message");
     //Turn the password items red
     document.getElementById("passwordGroup").classList.add("has-error");
-  }
-
-  for(var i=0; i<=userLength; i++)
-  {
-      var ch;
-      ch = userEntered.charAt(i);
-      name = name + ch;
-      console.log(name);
-      if(ch == " ")
-      {
-        document.getElementById("usernameError").innerHTML="Bad username.";
-        document.getElementById("usernameError").classList.remove("hidden-message");
-        document.getElementById("usernameError").classList.add("shown-message");
-        //Turn the username items red
-        document.getElementById("usernameGroup").classList.add("has-error");
-      }
   }
 
 }
